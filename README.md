@@ -5,5 +5,7 @@
 3. Once the new force fields have been added to the **src** folder of LAMMPS, compile LAMMPS as usual by executing the **make mpi** command.
 
 4. After compiling LAMMPS, you can run the model using the following command:
+   
 mpirun -np {number of cpus} ./lmp_mpi -in **in.dep**
+
 Here, **in.dep** refers to the LAMMPS input file provided in each folder. For each case in our paper, simulations are run for up to 100,000,000 steps to achieve the equilibrium state.
