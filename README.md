@@ -1,0 +1,1 @@
+This GitHub repository contains the input files necessary to reproduce the results presented in our 2024 Nature Communications paper, titled 'Surface Remodeling and Inversion of Cell-Matrix Interaction Underlies Community Recognition and Dispersal in V. cholerae Biofilms' by Alexis Moreau et al.
