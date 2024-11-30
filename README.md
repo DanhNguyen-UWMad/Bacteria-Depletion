@@ -6,4 +6,5 @@
 
 4. After compiling LAMMPS, you can run the model using the following command:  
    mpirun -np {number of cpus} ./lmp_mpi -in **in.dep**
+
 Here, **in.dep** refers to the LAMMPS input file provided in each folder. For each case in our paper, simulations are run for up to 100,000,000 steps to achieve the equilibrium state.
