@@ -1,0 +1,36 @@
+units          lj
+dimension      3
+boundary       p p p
+atom_style     molecular
+neighbor       0.3 bin
+neigh_modify   delay 0 every 1 
+pair_style lj/cut 2.5
+pair_modify shift yes 
+
+angle_style    rbc
+bond_style     harmonic
+dihedral_style bend
+#Read data
+read_data Input.data
+# Cell-Cell interactions (C-C)
+pair_coeff 1 1 6.57e-4 1.0 1.1225
+# Pol-Cell interactions (P-C)
+pair_coeff 1 2 3.28e-2 1.0 2.5
+# Pol-pol interactions (P-P)
+pair_coeff 2 2 3.28e-2 1.0 2.5
+mass 1 1
+mass 2 1
+velocity all create 1e-10 4928459 rot yes dist gaussian
+minimize 1.0e-4 1.0e-6 1000 1000
+timestep     0.01
+fix 1 all nve
+fix 2 all langevin 1e-2 1e-2 100 48279
+
+dump		1 all custom 1000000 bac.*.lammpstrj id mol type x y z
+dump_modify 1 sort id
+thermo_style custom step temp epair ebond eangle edihed emol etotal vol
+thermo 1000
+
+
+run	       100000000
+write_data bac_100000.data
